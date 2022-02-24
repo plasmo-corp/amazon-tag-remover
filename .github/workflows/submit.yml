@@ -1,0 +1,14 @@
+name: Submit Extensions
+on: 
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2.4.0
+            - uses: actions/setup-node@v2.5.1
+            - run: npm ci
+            - run: npm run build:prod
+            - run: ls -la
